@@ -3,5 +3,12 @@ language: go
 go:
   - tip
 
+before_install:
+  - go get github.com/gorilla/websocket
+  - go get golang.org/x/tools/cmd/vet
+
 install:
   - go get -t -v
+
+script:
+  - go vet -x ./...
